@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Print Gift Card For Neelu 💕</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f5f7;
+    font-family: 'Outfit', sans-serif;
+    color: #1c1917;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+  }
+  .controls {
+    background: #ffffff;
+    padding: 16px 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    width: 100%;
+  }
+  .controls input {
+    flex: 1;
+    min-width: 240px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #d6d3d1;
+    font-size: 0.95rem;
+    font-family: inherit;
+  }
+  .btn {
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #e11d48, #db2777);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(225,29,72,0.3);
+  }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-secondary {
+    background: #f5f5f4;
+    color: #44403c;
+  }
+
+  /* The Card */
+  .card-wrap {
+    perspective: 1000px;
+  }
+  .card {
+    width: 380px;
+    height: 560px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 42px 28px 36px;
+    text-align: center;
+    position: relative;
+    border: 1px solid #f0edea;
+  }
+  .card-top {
+    width: 100%;
+  }
+  .card-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #1c1917;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+  }
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 14px 0 0;
+  }
+  .divider-line {
+    width: 60px;
+    height: 1px;
+    background: #d6d3d1;
+  }
+  .divider-heart {
+    color: #e11d48;
+    font-size: 1.1rem;
+  }
+
+  /* QR Area */
+  .qr-box {
+    width: 220px;
+    height: 220px;
+    background: #ffffff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qr-box canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .card-bottom {
+    width: 100%;
+  }
+  .scan-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #78716c;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .footer-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #1c1917;
+  }
+  .footer-sub {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #e11d48;
+    margin-top: 2px;
+  }
+
+  /* Print Styles */
+  @media print {
+    body {
+      background: #fff;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .controls, .tip {
+      display: none !important;
+    }
+    .card {
+      box-shadow: none;
+      border: 1px solid #e7e5e4;
+      page-break-inside: avoid;
+    }
+  }
+  .tip {
+    margin-top: 18px;
+    font-size: 0.88rem;
+    color: #78716c;
+    max-width: 440px;
+    text-align: center;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+  <div class="controls">
+    <input type="text" id="urlInput" value="http://192.168.208.192:3000" placeholder="Website URL to encode">
+    <button class="btn btn-primary" onclick="window.print()">🖨️ Print Card</button>
+    <button class="btn btn-secondary" id="downloadBtn">📥 Download Image</button>
+  </div>
+
+  <div class="card-wrap">
+    <div class="card" id="printCard">
+      <div class="card-top">
+        <div class="card-title">A special<br>Gift</div>
+        <div class="divider">
+          <div class="divider-line"></div>
+          <div class="divider-heart">♡</div>
+          <div class="divider-line"></div>
+        </div>
+      </div>
+
+      <div class="qr-box">
+        <canvas id="qrCanvas"></canvas>
+      </div>
+
+      <div class="card-bottom">
+        <div class="scan-label">Point the camera</div>
+        <div class="footer-title">For My Babe Neelu</div>
+        <div class="footer-sub">Couple Rewind 💕</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="tip">
+    💡 <b>Tip:</b> Make sure Neelu's phone is connected to the same Wi-Fi network to open <code>http://192.168.208.192:3000</code>. When you deploy it online (like Vercel or Netlify), simply paste your live link above and click print!
+  </p>
+
+<script>
+  const canvas = document.getElementById('qrCanvas');
+  const urlInput = document.getElementById('urlInput');
+
+  function renderQR() {
+    const url = urlInput.value.trim() || 'http://192.168.208.192:3000';
+    QRCode.toCanvas(canvas, url, {
+      width: 220,
+      margin: 1,
+      color: {
+        dark: '#1c1917',
+        light: '#ffffff'
+      },
+      errorCorrectionLevel: 'H'
+    }, function (error) {
+      if (error) console.error(error);
+    });
+  }
+
+  urlInput.addEventListener('input', renderQR);
+  renderQR();
+
+  // Download card as high-res PNG
+  document.getElementById('downloadBtn').onclick = () => {
+    // Open printable SVG in new tab or download SVG
+    const a = document.createElement('a');
+    a.href = 'qr_gift_card.svg';
+    a.download = 'Gift_Card_For_Neelu.svg';
+    a.click();
+  };
+</script>
+</body>
+</html>

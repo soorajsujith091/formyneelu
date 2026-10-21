@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Neelu, My Babe 💕 | A surprise for you</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg1:#fff1f4;
+  --bg2:#fed7e2;
+  --bg3:#fbb6ce;
+  --card:rgba(255, 255, 255, 0.9);
+  --card-border:rgba(244, 114, 182, 0.35);
+  --ink:#4a1525;
+  --soft:#833a52;
+  --accent:#e11d48;
+  --accent-glow:rgba(225, 29, 72, 0.35);
+  --line:#f9a8d4;
+  --polaroid-shadow:0 18px 38px rgba(136, 19, 55, 0.15), 0 6px 12px rgba(136, 19, 55, 0.08);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg1:#1f0a13;
+    --bg2:#2e0f1d;
+    --bg3:#3d1427;
+    --card:rgba(53, 17, 34, 0.85);
+    --card-border:rgba(244, 114, 182, 0.25);
+    --ink:#ffe4ec;
+    --soft:#f472b6;
+    --accent:#fb7185;
+    --accent-glow:rgba(251, 113, 133, 0.4);
+    --line:#70243d;
+    --polaroid-shadow:0 18px 40px rgba(0, 0, 0, 0.5);
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(155deg,var(--bg1) 0%, var(--bg2) 50%, var(--bg3) 100%);
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:'Lora', Georgia, serif;
+  line-height:1.75;
+  overflow-x:hidden;
+}
+
+/* Floating heart background */
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.hearts span{position:absolute;bottom:-40px;color:var(--accent);opacity:.35;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-115vh) rotate(35deg);opacity:0}}
+
+main{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:24px 20px 90px}
+section{min-height:65vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:48px 0}
+
+h1,h2{font-family:'Dancing Script', cursive, Georgia, serif;font-weight:700;color:var(--accent);margin:0 0 12px;text-shadow:0 2px 10px var(--accent-glow)}
+h1{font-size:clamp(2.5rem,9.5vw,4rem);line-height:1.2}
+h2{font-size:clamp(2.1rem,7.5vw,2.9rem);line-height:1.25}
+
+.sub{color:var(--soft);font-style:italic;font-size:1.05rem;margin:6px 0 16px}
+.badge{
+  display:inline-block;
+  background:linear-gradient(135deg, rgba(225,29,72,0.12), rgba(244,114,182,0.18));
+  border:1px solid var(--line);
+  color:var(--accent);
+  padding:5px 16px;
+  border-radius:999px;
+  font-size:0.9rem;
+  font-weight:600;
+  letter-spacing:0.04em;
+  font-family:'Outfit', sans-serif;
+  margin-bottom:14px;
+}
+
+button{
+  font:inherit;
+  cursor:pointer;
+  border:0;
+  border-radius:999px;
+  padding:14px 34px;
+  background:linear-gradient(135deg, var(--accent), #db2777);
+  color:#fff;
+  font-size:1.08rem;
+  font-weight:600;
+  box-shadow:0 8px 26px var(--accent-glow);
+  transition:all .25s ease;
+  font-family:'Outfit', sans-serif;
+}
+button:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 12px 30px var(--accent-glow)}
+button:active{transform:translateY(1px) scale(0.98)}
+
+.env{font-size:5.5rem;animation:beat 1.5s infinite ease-in-out;margin:18px 0;filter:drop-shadow(0 8px 16px var(--accent-glow))}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+
+.hidden{display:none !important}
+.fade{opacity:0;transform:translateY(28px);transition:all .9s cubic-bezier(0.16, 1, 0.3, 1)}
+.fade.show{opacity:1;transform:none}
+
+.letter{
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:24px;
+  padding:32px 28px;
+  text-align:left;
+  min-height:200px;
+  white-space:pre-wrap;
+  font-size:1.12rem;
+  line-height:1.85;
+  backdrop-filter:blur(10px);
+  box-shadow:var(--polaroid-shadow);
+  position:relative;
+}
+.letter::before{
+  content:"💌";
+  position:absolute;
+  top:-20px;
+  right:24px;
+  font-size:2rem;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+/* Photo Gallery Section */
+.gallery-wrap{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:26px;
+  margin:24px 0 10px;
+  perspective:1000px;
+}
+.photo-card{
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:22px;
+  padding:16px 16px 20px;
+  box-shadow:var(--polaroid-shadow);
+  backdrop-filter:blur(10px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  transition:transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  position:relative;
+}
+.photo-card:hover{
+  transform:translateY(-8px) rotate(-1deg);
+  box-shadow:0 24px 44px rgba(136, 19, 55, 0.22);
+}
+.photo-card.card-together:hover{
+  transform:translateY(-8px) rotate(1.2deg);
+}
+.photo-pin{
+  position:absolute;
+  top:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:1.5rem;
+  z-index:2;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+.img-container{
+  width:100%;
+  aspect-ratio:1/1;
+  border-radius:16px;
+  overflow:hidden;
+  position:relative;
+  background:#fce7f3;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,0.05);
+}
+.img-container img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform 0.5s ease;
+}
+.photo-card:hover .img-container img{
+  transform:scale(1.05);
+}
+.photo-caption{
+  margin-top:14px;
+  width:100%;
+}
+.photo-caption h3{
+  font-family:'Dancing Script', cursive;
+  font-size:1.85rem;
+  color:var(--accent);
+  margin:0 0 4px;
+}
+.photo-caption p{
+  margin:0;
+  font-size:0.98rem;
+  color:var(--soft);
+  font-style:italic;
+  line-height:1.5;
+}
+.change-photo-btn{
+  margin-top:10px;
+  background:transparent;
+  border:1px dashed var(--line);
+  color:var(--soft);
+  font-size:0.8rem;
+  padding:5px 12px;
+  box-shadow:none;
+  border-radius:999px;
+  font-family:'Outfit', sans-serif;
+  opacity:0.85;
+}
+.change-photo-btn:hover{
+  transform:none;
+  background:rgba(244, 114, 182, 0.15);
+  color:var(--accent);
+  border-style:solid;
+}
+
+/* Timeline */
+.tl{width:100%;border-left:2px solid var(--line);padding-left:22px;text-align:left;margin-top:16px}
+.mem{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:16px 20px;margin-bottom:20px;position:relative;box-shadow:var(--polaroid-shadow);backdrop-filter:blur(6px)}
+.mem::before{content:"♥";position:absolute;left:-33px;top:14px;color:var(--accent);background:var(--bg1);border-radius:50%;font-size:1.1rem;padding:0 2px}
+.mem b{color:var(--accent);font-size:1.08rem;display:block;margin-bottom:4px;font-family:'Outfit', sans-serif}
+
+/* Reasons */
+.reasons{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;width:100%;margin-top:14px}
+.reason{background:var(--card);border:1px solid var(--card-border);border-radius:18px;padding:20px 14px;cursor:pointer;min-height:110px;display:flex;align-items:center;justify-content:center;font-size:1.02rem;text-align:center;transition:all .3s ease;box-shadow:var(--polaroid-shadow);user-select:none}
+.reason:hover{transform:translateY(-4px) rotate(-1.5deg);border-color:var(--accent)}
+.reason .h{font-size:2.2rem;color:var(--accent);animation:beat 2s infinite ease-in-out}
+
+/* Final CTA */
+.btns{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:24px;position:relative;min-height:64px}
+.btns .no{background:transparent;color:var(--soft);box-shadow:none;border:1px solid var(--line)}
+.fin{font-size:1.25rem;margin-top:22px;font-weight:600;color:var(--accent);animation:fadeIn 0.8s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Confetti & Kiss animation */
+.conf{position:fixed;top:-30px;z-index:90;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+
+.kiss-particle{
+  position:absolute;
+  pointer-events:none;
+  z-index:60;
+  animation:kissFloat 1.2s ease-out forwards;
+}
+@keyframes kissFloat{
+  0%{opacity:1;transform:translate(0, 0) scale(0.6)}
+  50%{transform:translate(var(--kx), var(--ky)) scale(1.3)}
+  100%{opacity:0;transform:translate(var(--kx), calc(var(--ky) - 35px)) scale(1.6)}
+}
+
+/* Lock screen */
+.lock{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;backdrop-filter:blur(12px);background:rgba(255, 241, 244, 0.75)}
+@media (prefers-color-scheme:dark){
+  .lock{background:rgba(31, 10, 19, 0.82)}
+}
+.lock.hidden{display:none}
+.box{background:var(--card);border:1px solid var(--card-border);border-radius:26px;padding:32px 24px;max-width:420px;width:100%;backdrop-filter:blur(14px);box-shadow:var(--polaroid-shadow);position:relative}
+.box .ic{font-size:3.2rem;margin-bottom:8px}
+.box input{width:100%;margin:18px 0 14px;padding:14px 18px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,0.85);color:var(--ink);font:inherit;font-size:1.15rem;text-align:center;letter-spacing:.15em;font-family:'Outfit', sans-serif}
+@media (prefers-color-scheme:dark){
+  .box input{background:rgba(0,0,0,0.35)}
+}
+.box input:focus{outline:2px solid var(--accent);box-shadow:0 0 12px var(--accent-glow)}
+.err{color:var(--accent);min-height:1.5em;margin:10px 0 6px;font-size:.95rem}
+.linkbtn{background:none;box-shadow:none;color:var(--soft);padding:6px 12px;font-size:.95rem;text-decoration:underline;cursor:pointer}
+.linkbtn:hover{color:var(--accent);transform:none}
+.shake{animation:shake .4s}
+@keyframes shake{20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}
+
+/* Playful Interactive Hint Panel */
+.hint-panel{
+  margin-top:14px;
+  animation:popIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes popIn{
+  from{opacity:0;transform:scale(0.92) translateY(-6px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+.hint-bubble{
+  background:rgba(255, 255, 255, 0.95);
+  border:1.5px dashed var(--line);
+  border-radius:20px;
+  padding:18px 16px;
+  box-shadow:0 6px 16px rgba(136, 19, 55, 0.08);
+}
+@media (prefers-color-scheme:dark){
+  .hint-bubble{background:rgba(42, 14, 27, 0.95);border-color:var(--line)}
+}
+.hint-question{
+  margin:0 0 14px;
+  font-family:'Dancing Script', cursive;
+  font-size:1.6rem;
+  font-weight:700;
+  color:var(--accent);
+  line-height:1.3;
+}
+.hint-buttons{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+}
+.hint-choice-btn{
+  padding:10px 22px;
+  font-size:0.98rem;
+  border-radius:999px;
+  font-family:'Outfit', sans-serif;
+  font-weight:600;
+}
+.hint-choice-btn.umma{
+  background:linear-gradient(135deg, #e11d48, #db2777);
+  color:#fff;
+  box-shadow:0 4px 14px var(--accent-glow);
+}
+.hint-choice-btn.nothing{
+  background:transparent;
+  border:1.5px solid var(--line);
+  color:var(--soft);
+  box-shadow:none;
+}
+.hint-choice-btn.nothing:hover{
+  background:rgba(244, 114, 182, 0.15);
+  color:var(--accent);
+  border-color:var(--accent);
+}
+.hint-reply{
+  margin-top:14px;
+  padding:14px 16px;
+  background:linear-gradient(135deg, rgba(225, 29, 72, 0.08), rgba(244, 114, 182, 0.12));
+  border:1px solid rgba(244, 114, 182, 0.3);
+  border-radius:16px;
+  animation:fadeIn 0.4s ease;
+  text-align:center;
+}
+.hint-reply p{
+  margin:0;
+  font-size:1rem;
+  color:var(--ink);
+  line-height:1.6;
+  font-weight:500;
+}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts" aria-hidden="true"></div>
+
+<!-- Lock Screen -->
+<div class="lock" id="lock">
+  <div class="box" id="box">
+    <div class="ic">🔒</div>
+    <span class="badge">A Surprise For Neelu</span>
+    <h2>Only For You, My Babe</h2>
+    <p class="sub">Enter our special code to unlock your surprise 💕</p>
+    <input id="code" type="text" placeholder="Secret code" autocomplete="off" autocapitalize="off" aria-label="Secret code">
+    <button id="unlock">Unlock For Neelu 💕</button>
+    <p class="err" id="err"></p>
+    
+    <!-- Need a hint button -->
+    <button class="linkbtn" id="hintbtn">Need a hint? 💭</button>
+    
+    <!-- Interactive Playful Hint Panel -->
+    <div id="hint-panel" class="hint-panel hidden">
+      <div class="hint-bubble">
+        <p class="hint-question">Paranju theraam... nth therum? 😉</p>
+        <div class="hint-buttons">
+          <button type="button" class="hint-choice-btn umma" id="btn-umma">Umma 😘</button>
+          <button type="button" class="hint-choice-btn nothing" id="btn-nothing">Nothing 😜</button>
+        </div>
+        <div class="hint-reply hidden" id="hint-reply">
+          <p id="hint-reply-text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Experience -->
+<main id="main" class="hidden">
+  <section id="intro">
+    <span class="badge">Made Just For You</span>
+    <h1 id="title">For Neelu, My Babe 💕</h1>
+    <p class="sub" id="date">Made with all my heart · 21 Oct 2026</p>
+    <div class="env">💌</div>
+    <p class="sub">Someone loves you very, very much… tap to open</p>
+    <button id="open">Open My Heart 💖</button>
+  </section>
+
+  <div id="content" class="hidden">
+    <!-- Letter Section -->
+    <section class="fade">
+      <span class="badge">Straight From The Heart</span>
+      <h2>A Love Letter For Neelu</h2>
+      <div class="letter" id="letter"></div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="fade" id="photos">
+      <span class="badge">Our Sweet Moments</span>
+      <h2>My Favorite Views In The World</h2>
+      <p class="sub">My babe & the love of my life 💖</p>
+      
+      <div class="gallery-wrap">
+        <!-- Single Photo Card: Neelu -->
+        <div class="photo-card card-single">
+          <div class="photo-pin">📍</div>
+          <div class="img-container">
+            <img id="img-neelu" src="images/neelu.jpg" alt="Photo of Neelu, My Babe">
+          </div>
+          <div class="photo-caption">
+            <h3>My Babe Neelu 💕</h3>
+            <p>"The smile that instantly brightens up my whole world and makes everything better."</p>
+            <input type="file" id="file-neelu" accept="image/*" class="hidden">
+            <button class="change-photo-btn" onclick="document.getElementById('file-neelu').click()">📷 Change photo</button>
+          </div>
+        </div>
+
+        <!-- Together Photo Card -->
+        <div class="photo-card card-together">
+          <div class="photo-pin">📍</div>
+          <div class="img-container">
+            <img id="img-together" src="images/together.jpg" alt="Us Together">
+          </div>
+          <div class="photo-caption">
+            <h3>You & Me Together 💑</h3>
+            <p>"Every single second in your arms is my favorite place in the entire universe."</p>
+            <input type="file" id="file-together" accept="image/*" class="hidden">
+            <button class="change-photo-btn" onclick="document.getElementById('file-together').click()">📷 Change photo</button>
+          </div>
+        </div>
+      </div>
+      <p class="sub" style="font-size:0.85rem;margin-top:12px;opacity:0.8">Tip: Tap "Change photo" above anytime to load your own real pictures!</p>
+    </section>
+
+    <!-- Timeline Memories -->
+    <section class="fade">
+      <span class="badge">Our Journey</span>
+      <h2>Our Little Moments</h2>
+      <div class="tl" id="tl"></div>
+    </section>
+
+    <!-- Reasons Section -->
+    <section class="fade">
+      <span class="badge">Endless Love</span>
+      <h2>Why I Love You, Neelu</h2>
+      <p class="sub">Tap each heart to reveal a reason 💕</p>
+      <div class="reasons" id="reasons"></div>
+    </section>
+
+    <!-- Final Question -->
+    <section class="fade" id="final">
+      <span class="badge">One Little Question</span>
+      <h2 id="q">Neelu, will you stay with me forever, my babe?</h2>
+      <div class="btns">
+        <button id="yes">Yes ♥ Always!</button>
+        <button class="no" id="no">Let me think</button>
+      </div>
+      <p class="fin hidden" id="ans"></p>
+    </section>
+  </div>
+</main>
+
+<script>
+/* ====== CONFIGURATION FOR NEELU ====== */
+const CONFIG = {
+  secretCode: "18072026",
+  babeName: "Neelu",
+  date: "Made with all my love for Neelu · 21 Oct 2026",
+  letter: "Hey Neelu, my babe,\n\nI wanted to tell you something that I probably don't say out loud often enough.\n\nYou make my ordinary days feel like pure magic. Your smile, your gentle voice, the way you look at me, and even sitting in peaceful silence with you — everything with you feels like home.\n\nThank you for being my safe space, for always understanding me, and for loving me even on my hardest days.\n\nThis little website is just a small reminder of how incredibly special you are to me. You are my babe, my happiness, and my favorite person.\n\nForever and always yours,\nWith all my love 💕",
+  memories: [
+    {when:"The Day You Came Into My Life", text:"I didn’t realize it right then, but that was the day my whole world turned beautiful."},
+    {when:"Our First Long Late-Night Conversation", text:"Hours slipped away like seconds. That was the night my heart chose you."},
+    {when:"Every Hug & Warm Moment We Share", text:"Whenever I’m in your arms, everything else fades away and I just feel at peace."}
+  ],
+  reasons: [
+    "Your smile makes my worst days vanish",
+    "You always listen and understand me",
+    "The way you make me feel safe & cherished",
+    "You feel like home to my heart",
+    "Your laugh is my absolute favorite sound",
+    "You believe in me when I doubt myself",
+    "You are my babe, my best friend, & my soulmate",
+    "Simply because you're Neelu — my everything"
+  ],
+  question: "Neelu, will you stay with me forever, my babe? 💕",
+  yesText: "Then it's a forever promise, Neelu! I'll love you today, tomorrow, and every single day after. 💖✨💍",
+  noTexts: ["Are you sure, Neelu? 🥺","Think again, my babe…","Pretty please with a kiss? 💕","There is only one answer 😄"]
+};
+
+const $ = id => document.getElementById(id);
+$("title").textContent = "For " + CONFIG.babeName + ", My Babe 💕";
+$("date").textContent = CONFIG.date;
+$("q").textContent = CONFIG.question;
+
+// Populate memories
+CONFIG.memories.forEach(m => {
+  const d = document.createElement("div");
+  d.className = "mem";
+  const b = document.createElement("b");
+  b.textContent = m.when;
+  const p = document.createElement("div");
+  p.textContent = m.text;
+  d.append(b, p);
+  $("tl").append(d);
+});
+
+// Populate reasons
+CONFIG.reasons.forEach(r => {
+  const d = document.createElement("div");
+  d.className = "reason";
+  d.innerHTML = '<span class="h">♥</span>';
+  let o = false;
+  d.onclick = () => {
+    o = !o;
+    d.textContent = o ? r : "";
+    if (!o) d.innerHTML = '<span class="h">♥</span>';
+  };
+  $("reasons").append(d);
+});
+
+// Floating background hearts
+const hs = $("hearts");
+for (let i = 0; i < 22; i++) {
+  const s = document.createElement("span");
+  s.textContent = "♥";
+  s.style.left = Math.random() * 100 + "%";
+  s.style.fontSize = (14 + Math.random() * 26) + "px";
+  s.style.animationDuration = (8 + Math.random() * 10) + "s";
+  s.style.animationDelay = (-Math.random() * 15) + "s";
+  hs.append(s);
+}
+
+// Letter Typewriter & Open Action
+let typed = false;
+$("open").onclick = () => {
+  $("content").classList.remove("hidden");
+  $("content").scrollIntoView({ behavior: "smooth" });
+  if (!typed) {
+    typed = true;
+    let i = 0;
+    const t = CONFIG.letter;
+    const L = $("letter");
+    const tick = () => {
+      L.textContent = t.slice(0, ++i);
+      if (i < t.length) setTimeout(tick, 28);
+    };
+    tick();
+  }
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add("show");
+  }), { threshold: 0.15 });
+  document.querySelectorAll(".fade").forEach(s => io.observe(s));
+};
+
+// Secret code gate
+function tryCode() {
+  const v = $("code").value.trim().toLowerCase();
+  if (v === CONFIG.secretCode.toLowerCase()) {
+    $("lock").classList.add("hidden");
+    $("main").classList.remove("hidden");
+    window.scrollTo(0, 0);
+  } else {
+    $("err").textContent = "Hmm, that’s not it! Try again, my babe 💭";
+    const b = $("box");
+    b.classList.remove("shake");
+    void b.offsetWidth;
+    b.classList.add("shake");
+    $("code").value = "";
+  }
+}
+$("unlock").onclick = tryCode;
+$("code").onkeydown = e => { if (e.key === "Enter") tryCode(); };
+
+// Interactive Playful Hint Logic
+$("hintbtn").onclick = () => {
+  $("hintbtn").classList.add("hidden");
+  $("hint-panel").classList.remove("hidden");
+};
+
+function burstKisses() {
+  const box = $("box");
+  const emojis = ["😘", "💋", "💕", "💖", "🥰", "✨"];
+  for (let i = 0; i < 16; i++) {
+    const k = document.createElement("span");
+    k.className = "kiss-particle";
+    k.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    const x = (Math.random() - 0.5) * 160;
+    const y = (Math.random() - 0.5) * 120 - 40;
+    k.style.setProperty("--kx", x + "px");
+    k.style.setProperty("--ky", y + "px");
+    k.style.left = "50%";
+    k.style.top = "60%";
+    k.style.fontSize = (18 + Math.random() * 18) + "px";
+    box.appendChild(k);
+    setTimeout(() => k.remove(), 1300);
+  }
+}
+
+$("btn-umma").onclick = () => {
+  const reply = $("hint-reply");
+  const replyText = $("hint-reply-text");
+  reply.classList.remove("hidden");
+  replyText.innerHTML = "😘 Aww! Scroll to the top of our WhatsApp chat and enter my first message date! You should remember it, my babe! 💬💕";
+  burstKisses();
+  $("code").focus();
+};
+
+$("btn-nothing").onclick = () => {
+  const reply = $("hint-reply");
+  const replyText = $("hint-reply-text");
+  reply.classList.remove("hidden");
+  replyText.innerHTML = "😜 oh pinee.. i need anything from you!";
+  $("code").focus();
+};
+
+// Playful "No" Button
+let n = 0;
+$("no").onclick = () => {
+  $("no").textContent = CONFIG.noTexts[Math.min(n, CONFIG.noTexts.length - 1)];
+  n++;
+  $("yes").style.transform = "scale(" + Math.min(1 + n * 0.18, 2.2) + ")";
+};
+
+// "Yes" Confetti Celebration
+$("yes").onclick = () => {
+  $("ans").textContent = CONFIG.yesText;
+  $("ans").classList.remove("hidden");
+  $("no").classList.add("hidden");
+  const sy = ["💖", "💕", "❤️", "🌹", "✨", "💗", "💍", "🥰"];
+  for (let i = 0; i < 70; i++) {
+    const c = document.createElement("div");
+    c.className = "conf";
+    c.textContent = sy[i % sy.length];
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.fontSize = (16 + Math.random() * 24) + "px";
+    c.style.animationDuration = (2.5 + Math.random() * 3) + "s";
+    c.style.animationDelay = Math.random() * 1.2 + "s";
+    document.body.append(c);
+    setTimeout(() => c.remove(), 7000);
+  }
+};
+
+// Photo Upload & Local Storage Persistence
+function setupPhotoUploader(inputId, imgId, storageKey) {
+  const saved = localStorage.getItem(storageKey);
+  if (saved) {
+    $(imgId).src = saved;
+  }
+  $(inputId).onchange = e => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = ev => {
+        $(imgId).src = ev.target.result;
+        try {
+          localStorage.setItem(storageKey, ev.target.result);
+        } catch(err) {
+          console.warn("Storage full", err);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+}
+
+setupPhotoUploader("file-neelu", "img-neelu", "custom_photo_neelu");
+setupPhotoUploader("file-together", "img-together", "custom_photo_together");
+</script>
+</body>
+</html>

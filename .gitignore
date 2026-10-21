@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-ssr
+*.local
+.vercel
+.system_generated
+.npm-cache
+.DS_Store
+images/
+
+_videos_tmp/

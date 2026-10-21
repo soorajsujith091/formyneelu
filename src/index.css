@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --bg1: #fff1f4;
+  --bg2: #fed7e2;
+  --bg3: #fbb6ce;
+  --card: rgba(255, 255, 255, 0.92);
+  --card-border: rgba(244, 114, 182, 0.35);
+  --ink: #4a1525;
+  --soft: #833a52;
+  --accent: #e11d48;
+  --accent-glow: rgba(225, 29, 72, 0.38);
+  --line: #f9a8d4;
+  --polaroid-shadow: 0 20px 45px rgba(136, 19, 55, 0.16), 0 8px 16px rgba(136, 19, 55, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg1: #1f0a13;
+    --bg2: #2e0f1d;
+    --bg3: #3d1427;
+    --card: rgba(53, 17, 34, 0.88);
+    --card-border: rgba(244, 114, 182, 0.28);
+    --ink: #ffe4ec;
+    --soft: #f472b6;
+    --accent: #fb7185;
+    --accent-glow: rgba(251, 113, 133, 0.45);
+    --line: #70243d;
+    --polaroid-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(155deg, var(--bg1) 0%, var(--bg2) 50%, var(--bg3) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: 'Lora', Georgia, serif;
+  line-height: 1.75;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+h1, h2, h3 {
+  font-family: 'Dancing Script', cursive, Georgia, serif;
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 2px 10px var(--accent-glow);
+}
+
+button {
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input {
+  font-family: 'Outfit', sans-serif;
+  outline: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg1);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Custom Love Heart Cursor */
+@media (pointer: fine) {
+  *, body, html {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='%23e11d48' stroke='%23ffffff' stroke-width='1.5'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") 11 11, auto !important;
+  }
+
+  a, button, input, [role="button"], label, .cursor-pointer {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 24 24' fill='%23db2777' stroke='%23ffffff' stroke-width='1.5'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") 13 13, pointer !important;
+  }
+}
