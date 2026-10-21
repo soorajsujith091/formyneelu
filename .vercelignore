@@ -1,0 +1,9 @@
+node_modules
+dist
+dist-ssr
+.git
+.vercel
+_videos_tmp
+images
+*.local
+.DS_Store
