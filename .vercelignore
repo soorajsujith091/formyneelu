@@ -4,6 +4,6 @@ dist-ssr
 .git
 .vercel
 _videos_tmp
-images
+/images
 *.local
 .DS_Store

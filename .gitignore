@@ -5,7 +5,7 @@ dist-ssr
 .vercel
 .system_generated
 .npm-cache
-.DS_Store
-images/
+/images/
 
 _videos_tmp/
+.vercel

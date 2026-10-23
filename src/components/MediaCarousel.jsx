@@ -11,18 +11,18 @@ const MEDIA_ITEMS = [
   { type: 'image', src: '/images/WhatsApp Image 2026-10-21 at 4.06.43 PM.jpeg', title: 'Forever by Your Side 💖', caption: 'Always and forever yours, my babe' },
 
   // Videos
-  { type: 'video', src: '/videos/copy_2E6F22D4-4132-42EB-A19B-29F7C160F204.mov', title: 'A Love Story 🎬', caption: 'Special video memory with Neelu' },
-  { type: 'video', src: '/videos/copy_02102332-4EE6-4EEA-9CA0-41EC23EE9A66.mov', title: 'A Sweet Memory 💕', caption: 'Special clips of pure happiness' },
-  { type: 'video', src: '/videos/copy_0671F0E6-A214-4B6A-B01E-2DA5BBB7705E.mov', title: 'Little Wonders ✨', caption: 'Little seconds of love caught on camera' },
-  { type: 'video', src: '/videos/copy_30DDDF93-9241-433D-8AD8-0F8F0883401D.mov', title: 'Laughs & Hugs 😊', caption: 'Making ordinary moments feel magic' },
-  { type: 'video', src: '/videos/copy_32A694B9-9DF8-4BAD-B120-006AB1717E0A.mov', title: 'Precious Times ⏳', caption: 'Time stands still whenever I am with you' },
-  { type: 'video', src: '/videos/copy_497697F5-C6CA-44DE-B57A-C634E10C1FFA.mov', title: 'Heartfelt Gaze 💕', caption: 'The way you look at me melts my heart' },
-  { type: 'video', src: '/videos/copy_5A11FAC9-9328-4024-A684-C219FC805E60.mov', title: 'Together Forever 💑', caption: 'Our bond that words could never hold' },
-  { type: 'video', src: '/videos/copy_621B2700-4A85-4F08-9C97-BA9600B5717E.mov', title: 'Pure Joy 🥰', caption: 'Endless laughter and happiness' },
-  { type: 'video', src: '/videos/copy_869B542B-DC66-42BD-84F0-11B195F3D9EC.mov', title: 'Unforgettable Day 🌹', caption: 'Memories etched forever in my soul' },
-  { type: 'video', src: '/videos/copy_8EF66814-727A-4888-A90A-8F9F10986E27.mov', title: 'Sweet Little Things 💭', caption: 'All the reasons why you mean the world' },
-  { type: 'video', src: '/videos/copy_CE7E9D45-8C68-4E94-91B8-D4D8C3EF051D.mov', title: 'My Favorite Human 💖', caption: 'Just being with you feels like home' },
-  { type: 'video', src: '/videos/copy_D35D4FEA-45E5-47C0-83AD-E83EFB094BEF.mov', title: 'Forever Love 💍', caption: 'Promise to cherish you in every lifetime' }
+  { type: 'video', src: '/videos/copy_2E6F22D4-4132-42EB-A19B-29F7C160F204.mp4', title: 'A Love Story 🎬', caption: 'Special video memory with Neelu' },
+  { type: 'video', src: '/videos/copy_02102332-4EE6-4EEA-9CA0-41EC23EE9A66.mp4', title: 'A Sweet Memory 💕', caption: 'Special clips of pure happiness' },
+  { type: 'video', src: '/videos/copy_0671F0E6-A214-4B6A-B01E-2DA5BBB7705E.mp4', title: 'Little Wonders ✨', caption: 'Little seconds of love caught on camera' },
+  { type: 'video', src: '/videos/copy_30DDDF93-9241-433D-8AD8-0F8F0883401D.mp4', title: 'Laughs & Hugs 😊', caption: 'Making ordinary moments feel magic' },
+  { type: 'video', src: '/videos/copy_32A694B9-9DF8-4BAD-B120-006AB1717E0A.mp4', title: 'Precious Times ⏳', caption: 'Time stands still whenever I am with you' },
+  { type: 'video', src: '/videos/copy_497697F5-C6CA-44DE-B57A-C634E10C1FFA.mp4', title: 'Heartfelt Gaze 💕', caption: 'The way you look at me melts my heart' },
+  { type: 'video', src: '/videos/copy_5A11FAC9-9328-4024-A684-C219FC805E60.mp4', title: 'Together Forever 💑', caption: 'Our bond that words could never hold' },
+  { type: 'video', src: '/videos/copy_621B2700-4A85-4F08-9C97-BA9600B5717E.mp4', title: 'Pure Joy 🥰', caption: 'Endless laughter and happiness' },
+  { type: 'video', src: '/videos/copy_869B542B-DC66-42BD-84F0-11B195F3D9EC.mp4', title: 'Unforgettable Day 🌹', caption: 'Memories etched forever in my soul' },
+  { type: 'video', src: '/videos/copy_8EF66814-727A-4888-A90A-8F9F10986E27.mp4', title: 'Sweet Little Things 💭', caption: 'All the reasons why you mean the world' },
+  { type: 'video', src: '/videos/copy_CE7E9D45-8C68-4E94-91B8-D4D8C3EF051D.mp4', title: 'My Favorite Human 💖', caption: 'Just being with you feels like home' },
+  { type: 'video', src: '/videos/copy_D35D4FEA-45E5-47C0-83AD-E83EFB094BEF.mp4', title: 'Forever Love 💍', caption: 'Promise to cherish you in every lifetime' }
 ];
 
 export default function MediaCarousel() {

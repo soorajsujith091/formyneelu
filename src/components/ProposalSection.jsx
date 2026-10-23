@@ -4,7 +4,13 @@ import confetti from 'canvas-confetti';
 import { balloons } from 'balloons-js';
 import { Heart, Sparkles } from 'lucide-react';
 
-export default function ProposalSection({ question, yesText, noTexts }) {
+export default function ProposalSection({
+  badge = "A Wish From My Heart 💭",
+  question,
+  yesBtnText = "I'll never forget you, promise! ♥",
+  yesText,
+  noTexts
+}) {
   const [noIndex, setNoIndex] = useState(0);
   const [yesScale, setYesScale] = useState(1);
   const [accepted, setAccepted] = useState(false);
@@ -82,7 +88,7 @@ export default function ProposalSection({ question, yesText, noTexts }) {
         fontFamily: "'Outfit', sans-serif",
         marginBottom: '16px'
       }}>
-        One Little Question
+        {badge}
       </div>
 
       <h2 style={{
@@ -110,11 +116,11 @@ export default function ProposalSection({ question, yesText, noTexts }) {
             whileTap={{ scale: yesScale * 0.95 }}
             onClick={handleYesClick}
             style={{
-              padding: '16px 42px',
+              padding: '16px 36px',
               borderRadius: '999px',
               background: 'linear-gradient(135deg, var(--accent), #db2777)',
               color: '#fff',
-              fontSize: '1.2rem',
+              fontSize: '1.15rem',
               fontWeight: 700,
               boxShadow: '0 10px 28px var(--accent-glow)',
               display: 'flex',
@@ -122,7 +128,7 @@ export default function ProposalSection({ question, yesText, noTexts }) {
               gap: '10px'
             }}
           >
-            <span>Yes ♥ Always!</span>
+            <span>{yesBtnText}</span>
             <Sparkles size={20} />
           </motion.button>
 
@@ -159,7 +165,7 @@ export default function ProposalSection({ question, yesText, noTexts }) {
             backdropFilter: 'blur(12px)'
           }}
         >
-          <div style={{ fontSize: '3rem', marginBottom: '10px' }}>💍💖🥰</div>
+          <div style={{ fontSize: '3rem', marginBottom: '10px' }}>🫂💖✨</div>
           <p style={{
             fontSize: '1.35rem',
             fontWeight: 600,

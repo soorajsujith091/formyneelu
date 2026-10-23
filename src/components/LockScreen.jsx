@@ -7,7 +7,7 @@ export default function LockScreen({ secretCode, onUnlock }) {
   const [error, setError] = useState('');
   const [shake, setShake] = useState(false);
   const [showHintPanel, setShowHintPanel] = useState(false);
-  const [hintReply, setHintReply] = useState('');
+  const [hintType, setHintType] = useState('');
   const [kisses, setKisses] = useState([]);
 
   const handleUnlock = () => {
@@ -38,12 +38,12 @@ export default function LockScreen({ secretCode, onUnlock }) {
   };
 
   const handleUmma = () => {
-    setHintReply('😘 Aww! Scroll to the top of our WhatsApp chat and enter my first message date! You should remember it, my babe! 💬💕');
+    setHintType('umma');
     triggerKisses();
   };
 
   const handleNothing = () => {
-    setHintReply('😜 oh pinee.. i need anything from you!');
+    setHintType('nothing');
   };
 
   return (
@@ -53,11 +53,13 @@ export default function LockScreen({ secretCode, onUnlock }) {
         inset: 0,
         zIndex: 50,
         display: 'flex',
-        alignItems: 'center',
         justifyContent: 'center',
-        padding: '20px',
+        alignItems: 'flex-start',
+        padding: 'max(24px, env(safe-area-inset-top, 24px)) 16px max(32px, env(safe-area-inset-bottom, 32px))',
+        overflowY: 'auto',
+        WebkitOverflowScrolling: 'touch',
         backdropFilter: 'blur(16px)',
-        background: 'rgba(255, 241, 244, 0.78)'
+        background: 'rgba(255, 241, 244, 0.85)'
       }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -71,13 +73,14 @@ export default function LockScreen({ secretCode, onUnlock }) {
           background: 'var(--card)',
           border: '1px solid var(--card-border)',
           borderRadius: '28px',
-          padding: '36px 26px',
+          padding: '34px 22px',
           maxWidth: '420px',
           width: '100%',
           boxShadow: 'var(--polaroid-shadow)',
           textAlign: 'center',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          margin: 'auto 0'
         }}
       >
         {/* Kiss animations */}
@@ -257,7 +260,7 @@ export default function LockScreen({ secretCode, onUnlock }) {
                 </motion.button>
               </div>
 
-              {hintReply && (
+              {hintType === 'nothing' && (
                 <motion.div
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -273,7 +276,77 @@ export default function LockScreen({ secretCode, onUnlock }) {
                     fontWeight: 500
                   }}
                 >
-                  {hintReply}
+                  😜 oh pinee.. i need anything from you!
+                </motion.div>
+              )}
+
+              {hintType === 'umma' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  style={{
+                    marginTop: '14px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '10px',
+                    textAlign: 'left'
+                  }}
+                >
+                  {/* Option 1: WhatsApp Date */}
+                  <div
+                    style={{
+                      padding: '12px 14px',
+                      background: 'rgba(255, 255, 255, 0.85)',
+                      border: '1px solid rgba(244, 114, 182, 0.35)',
+                      borderRadius: '16px',
+                      boxShadow: '0 2px 8px rgba(225, 29, 72, 0.06)'
+                    }}
+                  >
+                    <div style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      color: 'var(--accent)',
+                      fontSize: '0.88rem',
+                      fontWeight: 700,
+                      marginBottom: '4px'
+                    }}>
+                      <span>💬 Option 1: WhatsApp Date</span>
+                    </div>
+                    <p style={{ fontSize: '0.93rem', color: 'var(--ink)', lineHeight: 1.5, margin: 0 }}>
+                      Scroll to the top of our WhatsApp chat and enter our first message date! You should remember it, my babe! 💕
+                    </p>
+                  </div>
+
+                  {/* Option 2: Kiss & Back Pocket Secret Code */}
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={triggerKisses}
+                    style={{
+                      padding: '13px 14px',
+                      background: 'linear-gradient(135deg, rgba(225, 29, 72, 0.1), rgba(244, 114, 182, 0.18))',
+                      border: '1.5px dashed var(--accent)',
+                      borderRadius: '16px',
+                      boxShadow: '0 4px 14px rgba(225, 29, 72, 0.1)',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <div style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      color: 'var(--accent)',
+                      fontSize: '0.88rem',
+                      fontWeight: 700,
+                      marginBottom: '4px'
+                    }}>
+                      <span>💋 Option 2: Sweet Secret Way</span>
+                    </div>
+                    <p style={{ fontSize: '0.93rem', color: 'var(--ink)', lineHeight: 1.5, margin: 0 }}>
+                      If you can't get the date of our first WhatsApp message, you have another way... Come give me a sweet kiss and get the secret code right from my back pocket! 😉👖✨
+                    </p>
+                  </motion.div>
                 </motion.div>
               )}
             </motion.div>

@@ -50,13 +50,15 @@ If I get reborn in another life, I will find you, and I will make you mine. Neel
     "You are my babe, my best friend, & my soulmate",
     "Simply because you're Neelu — my everything"
   ],
-  question: "Neelu, will you stay with me forever, my babe? 💕",
-  yesText: "Then it's a forever promise, Neelu! I'll love you today, tomorrow, and every single day after. 💖✨💍",
+  badge: "A Wish From My Heart 💭",
+  question: "Neelu, I know the reality... but will you promise never to forget me? 💕",
+  yesBtnText: "I'll never forget you, promise! ♥",
+  yesText: "That promise means the entire world to me, Neelu. No matter where life leads us, you will forever stay in my heart. 💖✨",
   noTexts: [
-    "Are you sure, Neelu? 🥺",
-    "Think again, my babe…",
-    "Pretty please with a kiss? 💕",
-    "There is only one answer 😄"
+    "How could I ever forget you? 🥺",
+    "You're always in my thoughts 💕",
+    "Never, my babe! 🥰",
+    "That's simply impossible 😄"
   ]
 };
 
@@ -73,7 +75,7 @@ export default function App() {
   };
 
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', overflowX: 'hidden' }}>
+    <div style={{ position: 'relative', minHeight: '100vh' }}>
       {/* Animated Love Icon Cursor */}
       <HeartCursor />
 
@@ -99,34 +101,46 @@ export default function App() {
           style={{
             position: 'relative',
             zIndex: 1,
-            maxWidth: '680px',
-            margin: '0 auto',
-            padding: '20px 20px 80px'
+            width: '100%'
           }}
         >
-          {/* Top Intro with 3D Envelope */}
+          {/* Top Intro with 3D Envelope (Sticky Hero) */}
           <IntroEnvelope onOpen={handleOpenEnvelope} />
 
-          {/* Unfolded Content */}
+          {/* Unfolded Content (Curtain sliding up over sticky intro) */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
                 ref={letterRef}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
+                style={{
+                  position: 'relative',
+                  zIndex: 10,
+                  width: '100%',
+                  background: 'linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 350px, var(--bg3) 100%)',
+                  boxShadow: '0 -25px 60px rgba(0, 0, 0, 0.28)',
+                  borderRadius: '36px 36px 0 0',
+                  marginTop: '-35px',
+                  padding: '40px 0 80px'
+                }}
               >
-                <LoveLetter letterMl={CONFIG.letterMl} letterEn={CONFIG.letterEn} />
-                <PhotoGallery />
-                <MediaCarousel />
-                <MemoriesTimeline memories={CONFIG.memories} />
-                <ReasonsGrid reasons={CONFIG.reasons} />
-                <BalloonsSection />
-                <ProposalSection
-                  question={CONFIG.question}
-                  yesText={CONFIG.yesText}
-                  noTexts={CONFIG.noTexts}
-                />
+                <div style={{ maxWidth: '680px', margin: '0 auto', padding: '0 20px' }}>
+                  <LoveLetter letterMl={CONFIG.letterMl} letterEn={CONFIG.letterEn} />
+                  <PhotoGallery />
+                  <MediaCarousel />
+                  <MemoriesTimeline memories={CONFIG.memories} />
+                  <ReasonsGrid reasons={CONFIG.reasons} />
+                  <BalloonsSection />
+                  <ProposalSection
+                    badge={CONFIG.badge}
+                    question={CONFIG.question}
+                    yesBtnText={CONFIG.yesBtnText}
+                    yesText={CONFIG.yesText}
+                    noTexts={CONFIG.noTexts}
+                  />
+                </div>
               </motion.div>
             )}
           </AnimatePresence>

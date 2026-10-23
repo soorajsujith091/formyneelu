@@ -11,7 +11,7 @@ export interface BalloonsProps {
   onLaunch?: () => void
 }
 
-const Balloons = React.forwardRef<HTMLDivElement, BalloonsProps>(
+const Balloons = React.forwardRef<any, BalloonsProps>(
   ({ type = "default", text, fontSize = 120, color = "#000000", className, onLaunch }, ref) => {
     const containerRef = React.useRef<HTMLDivElement>(null)
     

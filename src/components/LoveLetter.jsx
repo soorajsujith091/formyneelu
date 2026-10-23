@@ -98,7 +98,7 @@ export default function LoveLetter({ letterMl, letterEn }) {
       >
         <video
           ref={videoRef}
-          src="/videos/copy_2E6F22D4-4132-42EB-A19B-29F7C160F204.mov"
+          src="/videos/copy_2E6F22D4-4132-42EB-A19B-29F7C160F204.mp4"
           autoPlay
           loop
           playsInline
