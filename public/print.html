@@ -182,9 +182,9 @@
 <body>
 
   <div class="controls">
-    <input type="text" id="urlInput" value="http://192.168.208.192:3000" placeholder="Website URL to encode">
+    <input type="text" id="urlInput" value="https://formyneelu.vercel.app" placeholder="Website URL to encode">
     <button class="btn btn-primary" onclick="window.print()">🖨️ Print Card</button>
-    <button class="btn btn-secondary" id="downloadBtn">📥 Download Image</button>
+    <button class="btn btn-secondary" id="downloadBtn">📥 Download High-Res PNG</button>
   </div>
 
   <div class="card-wrap">
@@ -204,14 +204,13 @@
 
       <div class="card-bottom">
         <div class="scan-label">Point the camera</div>
-        <div class="footer-title">For My Babe Neelu</div>
-        <div class="footer-sub">Couple Rewind 💕</div>
+        <div class="footer-title">Couple Rewind</div>
       </div>
     </div>
   </div>
 
   <p class="tip">
-    💡 <b>Tip:</b> Make sure Neelu's phone is connected to the same Wi-Fi network to open <code>http://192.168.208.192:3000</code>. When you deploy it online (like Vercel or Netlify), simply paste your live link above and click print!
+    💡 <b>Tip:</b> Pointing any phone camera at this card will instantly open your deployed surprise website at <code>https://formyneelu.vercel.app</code>!
   </p>
 
 <script>
@@ -219,12 +218,12 @@
   const urlInput = document.getElementById('urlInput');
 
   function renderQR() {
-    const url = urlInput.value.trim() || 'http://192.168.208.192:3000';
+    const url = urlInput.value.trim() || 'https://formyneelu.vercel.app';
     QRCode.toCanvas(canvas, url, {
-      width: 220,
+      width: 230,
       margin: 1,
       color: {
-        dark: '#1c1917',
+        dark: '#111827',
         light: '#ffffff'
       },
       errorCorrectionLevel: 'H'
@@ -236,12 +235,11 @@
   urlInput.addEventListener('input', renderQR);
   renderQR();
 
-  // Download card as high-res PNG
+  // Download high-res printable card PNG
   document.getElementById('downloadBtn').onclick = () => {
-    // Open printable SVG in new tab or download SVG
     const a = document.createElement('a');
-    a.href = 'qr_gift_card.svg';
-    a.download = 'Gift_Card_For_Neelu.svg';
+    a.href = 'qr_gift_card.png';
+    a.download = 'Gift_Card_Couple_Rewind.png';
     a.click();
   };
 </script>
